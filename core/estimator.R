@@ -43,6 +43,8 @@ loc.lin.est <- function(x0, x, y, kernel, h, a.m, is.loc.lin = TRUE)
   s2 <- sum(a.m * w * x.centered * x.centered)
   wj <- (s2 - s1 * x.centered) * a.m * w
   
+  # поправка на визначеність
+  #res <- sum(wj * y) / (sum(wj) + 1 / (length(x))^2)
   res <- sum(wj * y) / sum(wj)
   res
 }
